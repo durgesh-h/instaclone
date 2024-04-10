@@ -28,7 +28,7 @@ router.get("/like/:postid", async function (req, res) {
     post.like.splice(post.like.indexOf(user._id), 1);
   }
   await post.save();
-  res.json(post);
+  res.redirect("/feed");
 });
 
 router.get("/feed", isLoggedIn, async function (req, res) {
